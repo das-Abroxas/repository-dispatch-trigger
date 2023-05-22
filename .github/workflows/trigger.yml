@@ -17,6 +17,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.ARUNA_ACCESS_TOKEN }}
-          repository: ArunaStorage/java-api
+          repository: das-Abroxas/java-api
           event-type: publish
           client-payload: '{"version": "${{ inputs.tag }}", "message": "${{ inputs.message }}"}'
