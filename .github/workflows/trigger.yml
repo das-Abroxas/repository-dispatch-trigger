@@ -1,0 +1,22 @@
+name: create-publish-release
+on: 
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Semver release version'
+        required: true
+        type: string
+      message:
+        description: 'Message for the new tag'     
+        required: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch (python)
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.ARUNA_ACCESS_TOKEN }}
+          repository: ArunaStorage/java-api
+          event-type: publish
+          client-payload: '{"version": "${{ inputs.tag }}", "message": "${{ inputs.message }}"}'
