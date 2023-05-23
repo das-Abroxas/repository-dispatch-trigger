@@ -13,17 +13,17 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Repository Dispatch (Java Plain)
-        uses: peter-evans/repository-dispatch@v2
-        with:
-          token: ${{ secrets.ARUNA_ACCESS_TOKEN }}
-          repository: das-Abroxas/java-api-test
-          event-type: publish
-          client-payload: '{"version": "${{ inputs.tag }}", "message": "${{ inputs.message }}"}'
-#      - name: Repository Dispatch (Java)
+#      - name: Repository Dispatch (Java Plain)
 #        uses: peter-evans/repository-dispatch@v2
 #        with:
 #          token: ${{ secrets.ARUNA_ACCESS_TOKEN }}
-#          repository: das-Abroxas/java-api
+#          repository: das-Abroxas/java-api-test
 #          event-type: publish
-#          client-payload: '{"version": "${{ inputs.tag }}", "message": "${{ inputs.message }}"}'  
+#          client-payload: '{"version": "${{ inputs.tag }}", "message": "${{ inputs.message }}"}'
+      - name: Repository Dispatch (Java)
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.ARUNA_ACCESS_TOKEN }}
+          repository: das-Abroxas/java-api
+          event-type: publish
+          client-payload: '{"version": "${{ inputs.tag }}", "message": "${{ inputs.message }}"}'  
