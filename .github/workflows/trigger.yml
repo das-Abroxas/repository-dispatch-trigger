@@ -13,10 +13,17 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Repository Dispatch (python)
+      - name: Repository Dispatch (Python)
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.ARUNA_ACCESS_TOKEN }}
+          repository: das-Abroxas/python-api
+          event-type: publish
+          client-payload: '{"version": "${{ inputs.tag }}", "message": "${{ inputs.message }}"}'
+      - name: Repository Dispatch (Java)
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.ARUNA_ACCESS_TOKEN }}
           repository: das-Abroxas/java-api
           event-type: publish
-          client-payload: '{"version": "${{ inputs.tag }}", "message": "${{ inputs.message }}"}'
+          client-payload: '{"version": "${{ inputs.tag }}", "message": "${{ inputs.message }}"}'  
