@@ -16,7 +16,7 @@ jobs:
       - name: Repository Dispatch (Java)
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.ARUNA_ACCESS_TOKEN }}
+          token: ${{ secrets.PRIVATE_PYTHON_API_REPO }}
           repository: das-Abroxas/python-api
           event-type: publish
           client-payload: '{"version": "${{ inputs.tag }}", "message": "${{ inputs.message }}"}'  
