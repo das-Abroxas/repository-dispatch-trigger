@@ -9,12 +9,9 @@ on:
       message:
         description: 'Message for the new tag'     
         required: false
-      name:
-        type: choice
-        description: Who to greet
-        options: 
-        - monalisa
-        - cschleiden
+      Release Python:
+        type: boolean
+        description: Deploy Python API
 jobs:
   publish:
     runs-on: ubuntu-latest
