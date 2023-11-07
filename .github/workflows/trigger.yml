@@ -9,6 +9,12 @@ on:
       message:
         description: 'Message for the new tag'     
         required: false
+      name:
+        type: choice
+        description: Who to greet
+        options: 
+        - monalisa
+        - cschleiden
 jobs:
   publish:
     runs-on: ubuntu-latest
